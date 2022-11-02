@@ -1,0 +1,27 @@
+
+
+.content {
+    max-width: 55rem;
+}
+
+.bg-blue {
+    background-color: rgb(29, 88, 238);
+}
+
+h4 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: white;
+    color: black; 
+}
+
+p {
+    font-size: 22px;
+}
