@@ -44,10 +44,12 @@ function createGraph(data){
     let chart_data = {
         bindto: "#chart",
         data: {
+          
             xs: {
                 salary_in_usd: "work_year"
             },
             columns: [
+                
                 ["salary_in_usd"].concat(columns["salary_in_usd"]),
                 ["work_year"].concat(columns["work_year"])
             ],
@@ -57,7 +59,7 @@ function createGraph(data){
             x: {
                 label: 'Work Year',
                 tick: {
-                    fit: false
+                    values: ['2020', '2021', '2022']
                 }
             },
             y: {
