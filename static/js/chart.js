@@ -42,6 +42,7 @@ function createGraph(data){
     let columns = rowsToColumns(data);
 
     let chart_data = {
+        bindto: "#chart",
         data: {
             xs: {
                 salary_in_usd: "work_year"
@@ -66,10 +67,7 @@ function createGraph(data){
     }
 
     var chart = c3.generate(chart_data);
-
-    console.log(chart);
-
-   return chart
+    return chart
 }
 
 parseData().then((data)=>{createGraph(data)})
