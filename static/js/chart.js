@@ -17,6 +17,7 @@ function castValue(field, type) {
     throw new Error("Unsupported field type.")
 }
 
+
 function rowsToColumns(data){
     let columns = {};
     let column_titles = data[0];
@@ -63,9 +64,7 @@ function createGraph(data){
                 }
             },
             y: {
-                label: 'Salary'
-                tick: {
-                    values: ['2500', '5000','7500', '10000','12500', '15000','17500', '20000','22500', '25000','27500', '30000', '50000', '60000']
+                label: 'Salary'              
             }
         }
     }
@@ -75,5 +74,5 @@ function createGraph(data){
 }
 
 parseData().then((data)=>{createGraph(data)})
-
+//https://c3js.org/
 //https://www.papaparse.com/
