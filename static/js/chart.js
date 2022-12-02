@@ -5,7 +5,7 @@ async function parseData (createG) {
     return dataset.data;
 }
 
-let Papa;
+
 
 function castValue (field, type) {
     if (type === 'int') {
@@ -27,11 +27,11 @@ function rowsToColumns (data) {
     for (let i = 2; i < data.length; i++) {
         const row = data[i];
         for (let row_i = 0; row_i < row.length; row_i++) {
-            const fieldName = data[0][row_i];
+            const field_name = data[0][row_i];
             let field_value = row[row_i];
             field_value = castValue(field_value, column_types[row_i]);
 
-            columns[fieldName].push(field_value);
+            columns[field_name].push(field_value);
         }
     }
     console.log(columns);
