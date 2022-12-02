@@ -26,10 +26,10 @@ function rowsToColumns (data) {
 
     for (let i = 2; i < data.length; i++) {
         const row = data[i];
-        for (let rowi = 0; rowi < row.length; rowi++) {
+        for (let row_i = 0; row_i < row.length; row_i++) {
             const fieldName = data[0][row_i];
-            let field_value = row[rowi];
-            field_value = castValue(field_value, column_types[rowi]);
+            let field_value = row[row_i];
+            field_value = castValue(field_value, column_types[row_i]);
 
             columns[fieldName].push(field_value);
         }
