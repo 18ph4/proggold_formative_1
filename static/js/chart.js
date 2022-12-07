@@ -1,8 +1,9 @@
-/**Reads the dataset in to a javaScript object from a csv file. */
+/** Reads the dataset in to a javaScript object from a csv file. */
 async function parseData () {
     const response = await fetch('salaries_cyber.csv');
-    const text_csv = await response.text();
-    const dataset = Papa.parse(text_csv);
+    const textCsv = await response.text();
+    // eslint-disable-next-line no-undef
+    const dataset = Papa.parse(textCsv);
     return dataset.data;
 }
 
@@ -27,19 +28,18 @@ function castValue (field, type) {
  */
 function rowsToColumns (data) {
     const columns = {};
-    const column_titles = data[0];
-    const column_types = data[1];
+    const columnTypes = data[1];
 
     data[0].forEach(function (element) { columns[element] = []; });
 
     for (let i = 2; i < data.length; i++) {
         const row = data[i];
-        for (let row_i = 0; row_i < row.length; row_i++) {
-            const field_name = data[0][row_i];
-            let field_value = row[row_i];
-            field_value = castValue(field_value, column_types[row_i]);
+        for (let rowIndex = 0; rowIndex < row.length; rowIndex++) {
+            const fieldName = data[0][rowIndex];
+            let fieldValue = row[rowIndex];
+            fieldValue = castValue(fieldValue, columnTypes[rowIndex]);
 
-            columns[field_name].push(field_value);
+            columns[fieldName].push(fieldValue);
         }
     }
     console.log(columns);
@@ -53,7 +53,7 @@ function rowsToColumns (data) {
 function createGraph (data) {
     const columns = rowsToColumns(data);
 
-    const chart_data = {
+    const chartData = {
         bindto: '#chart',
         data: {
 
@@ -80,7 +80,8 @@ function createGraph (data) {
         }
     };
 
-    const chart = c3.generate(chart_data);
+    // eslint-disable-next-line no-undef
+    const chart = c3.generate(chartData);
     return chart;
 }
 
